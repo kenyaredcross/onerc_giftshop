@@ -1,14 +1,14 @@
 app_name = "onerc_giftshop"
-app_title = "Onerc Giftshop"
+app_title = "OneRC Gift Shop"
 app_publisher = "Kelvin Njenga"
-app_description = "Giftshop for RCRC"
+app_description = "Multi-branch gift shop platform for humanitarian organisations"
 app_email = "njengasheba@gmail.com"
 app_license = "mit"
 
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe", "erpnext", "onerc_core"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -86,7 +86,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "onerc_giftshop.install.before_install"
-# after_install = "onerc_giftshop.install.after_install"
+after_install = "onerc_giftshop.setup.after_install"
 
 # Uninstallation
 # ------------
@@ -160,6 +160,15 @@ app_license = "mit"
 # 		"onerc_giftshop.tasks.monthly"
 # 	],
 # }
+
+fixtures = [
+	{"dt": "Role", "filters": [["role_name", "in", [
+		"Shop Administrator",
+		"Shop Branch Manager",
+		"Shop Region Manager",
+		"Shop Finance",
+	]]]},
+]
 
 # Testing
 # -------

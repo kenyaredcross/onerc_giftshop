@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "creation": "2026-06-10 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_name",
+  "shop_tagline",
+  "logo",
+  "column_break_branding",
+  "primary_colour",
+  "secondary_colour",
+  "company_section",
+  "default_currency",
+  "default_company",
+  "tax_template",
+  "checkout_section",
+  "enable_guest_checkout",
+  "enable_stock_management",
+  "low_stock_threshold",
+  "contact_section",
+  "contact_email",
+  "contact_phone",
+  "return_policy_days",
+  "terms_and_conditions",
+  "notifications_section",
+  "enable_sms_notifications",
+  "enable_email_notifications"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Shop Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_tagline",
+   "fieldtype": "Data",
+   "label": "Tagline"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "column_break_branding",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#EE2435",
+   "fieldname": "primary_colour",
+   "fieldtype": "Color",
+   "label": "Primary Colour"
+  },
+  {
+   "default": "#011E41",
+   "fieldname": "secondary_colour",
+   "fieldtype": "Color",
+   "label": "Secondary Colour"
+  },
+  {
+   "fieldname": "company_section",
+   "fieldtype": "Section Break",
+   "label": "Company & Accounting"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_template",
+   "fieldtype": "Link",
+   "label": "Tax Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "checkout_section",
+   "fieldtype": "Section Break",
+   "label": "Checkout & Inventory"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_guest_checkout",
+   "fieldtype": "Check",
+   "label": "Enable Guest Checkout"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_stock_management",
+   "fieldtype": "Check",
+   "label": "Enable Stock Management"
+  },
+  {
+   "default": "5",
+   "fieldname": "low_stock_threshold",
+   "fieldtype": "Int",
+   "label": "Low Stock Threshold"
+  },
+  {
+   "fieldname": "contact_section",
+   "fieldtype": "Section Break",
+   "label": "Contact & Policy"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone"
+  },
+  {
+   "default": "7",
+   "fieldname": "return_policy_days",
+   "fieldtype": "Int",
+   "label": "Return Policy Days"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fieldname": "notifications_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_sms_notifications",
+   "fieldtype": "Check",
+   "label": "Enable SMS Notifications"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_email_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Email Notifications"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-10 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Onerc Giftshop",
+ "name": "Gift Shop Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Shop Administrator",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Shop Branch Manager",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "row_format": "Dynamic",
+ "track_changes": 1
+}
