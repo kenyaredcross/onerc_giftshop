@@ -14,6 +14,9 @@
   "default_currency",
   "default_company",
   "tax_template",
+  "root_item_group",
+  "column_break_payment",
+  "hq_payment_account",
   "checkout_section",
   "enable_guest_checkout",
   "enable_stock_management",
@@ -86,6 +89,23 @@
    "fieldtype": "Link",
    "label": "Tax Template",
    "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "default": "Gift Shop",
+   "fieldname": "root_item_group",
+   "fieldtype": "Link",
+   "label": "Root Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "column_break_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hq_payment_account",
+   "fieldtype": "Link",
+   "label": "HQ Payment Account",
+   "options": "Bank Account"
   },
   {
    "fieldname": "checkout_section",

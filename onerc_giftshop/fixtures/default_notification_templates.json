@@ -1,0 +1,108 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Confirmed",
+  "template_name": "Order Confirmed",
+  "event": "order_confirmed",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} confirmed. Total: {{total}}. Thank you, {{customer_name}}!",
+  "email_subject": "Your order {{order_number}} is confirmed",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> has been confirmed. Total: {{total}}.</p><p>We will notify you when it is ready for collection.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Processing",
+  "template_name": "Order Processing",
+  "event": "order_processing",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} is being processed at {{branch_name}}.",
+  "email_subject": "Order {{order_number}} is being processed",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> is now being processed.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Ready",
+  "template_name": "Order Ready",
+  "event": "order_ready",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} is ready for collection at {{branch_name}}.",
+  "email_subject": "Your order {{order_number}} is ready for collection",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> is ready for collection at {{branch_name}}.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Shipped",
+  "template_name": "Order Shipped",
+  "event": "order_shipped",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} has been shipped. Total: {{total}}.",
+  "email_subject": "Your order {{order_number}} has been shipped",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> has been shipped.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Delivered",
+  "template_name": "Order Delivered",
+  "event": "order_delivered",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} delivered. Thank you, {{customer_name}}!",
+  "email_subject": "Your order {{order_number}} has been delivered",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> has been delivered. Thank you for your purchase!</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Order Cancelled",
+  "template_name": "Order Cancelled",
+  "event": "order_cancelled",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Order {{order_number}} has been cancelled. Contact us for help.",
+  "email_subject": "Your order {{order_number}} has been cancelled",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Your order <strong>{{order_number}}</strong> has been cancelled. Please contact us if you have questions.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Payment Failed",
+  "template_name": "Payment Failed",
+  "event": "payment_failed",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Payment for order {{order_number}} failed. Please retry or contact support.",
+  "email_subject": "Payment failed for order {{order_number}}",
+  "email_body": "<p>Dear {{customer_name}},</p><p>Payment for order <strong>{{order_number}}</strong> was unsuccessful. Please retry or contact support.</p>"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Low Stock Alert",
+  "template_name": "Low Stock Alert",
+  "event": "low_stock",
+  "channel": "SMS",
+  "is_active": 1,
+  "sms_template": "Low stock: {{item_name}} at {{branch_name}} is below threshold. Qty: {{stock_qty}}."
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Shop Notification Template",
+  "name": "Remittance Due",
+  "template_name": "Remittance Due",
+  "event": "remittance_due",
+  "channel": "Both",
+  "is_active": 1,
+  "sms_template": "Remittance due for {{branch_name}}. Amount: {{total}}. Please process.",
+  "email_subject": "Remittance due for {{branch_name}}",
+  "email_body": "<p>A remittance is due for branch <strong>{{branch_name}}</strong>. Amount: {{total}}.</p>"
+ }
+]

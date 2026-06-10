@@ -20,6 +20,7 @@ def after_install():
 	price_list = _ensure_price_list()
 	_ensure_root_shop_branch(company, cost_center, warehouse, price_list)
 	_ensure_roles()
+	_ensure_item_groups()
 
 	logger.info("onerc_giftshop: after_install complete")
 
@@ -150,6 +151,45 @@ def _ensure_roles():
 	for role_name in roles:
 		if not frappe.db.exists("Role", role_name):
 			frappe.get_doc({"doctype": "Role", "role_name": role_name}).insert(ignore_permissions=True)
+	frappe.db.commit()
+
+
+def _ensure_item_groups():
+	root_name = (
+		frappe.db.get_single_value("Gift Shop Settings", "root_item_group")
+		if frappe.db.exists("DocType", "Gift Shop Settings")
+		else None
+	) or "Gift Shop"
+
+	all_groups = frappe.db.get_value(
+		"Item Group", {"is_group": 1, "parent_item_group": ["is", "not set"]}, "name"
+	) or "All Item Groups"
+
+	if not frappe.db.exists("Item Group", root_name):
+		frappe.get_doc({
+			"doctype": "Item Group",
+			"item_group_name": root_name,
+			"parent_item_group": all_groups,
+			"is_group": 1,
+		}).insert(ignore_permissions=True)
+
+	sub_groups = [
+		"Clothing & Apparel",
+		"Stationery & Office",
+		"Branded Merchandise",
+		"Books & Publications",
+		"Food & Beverages",
+		"Other",
+	]
+	for group_name in sub_groups:
+		if not frappe.db.exists("Item Group", group_name):
+			frappe.get_doc({
+				"doctype": "Item Group",
+				"item_group_name": group_name,
+				"parent_item_group": root_name,
+				"is_group": 0,
+			}).insert(ignore_permissions=True)
+
 	frappe.db.commit()
 
 
