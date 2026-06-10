@@ -21,14 +21,20 @@ class ShopBranch(Document):
 		self._check_write_permission()
 
 	def on_update(self):
-		if not self.is_root:
-			remaining_roots = frappe.db.count(
-				"Shop Branch", {"is_root": 1, "name": ["!=", self.name]}
+		if self.is_root:
+			return
+		# Only guard against demoting the last root. New inserts and updates of
+		# already-non-root branches do not remove a root, so skip the check.
+		prev = getattr(self, "_doc_before_save", None)
+		if not (prev and prev.is_root):
+			return
+		remaining_roots = frappe.db.count(
+			"Shop Branch", {"is_root": 1, "name": ["!=", self.name]}
+		)
+		if remaining_roots == 0:
+			frappe.throw(
+				_("At least one Shop Branch must be marked as root. Set another branch as root before removing this one.")
 			)
-			if remaining_roots == 0:
-				frappe.throw(
-					_("At least one Shop Branch must be marked as root. Set another branch as root before removing this one.")
-				)
 
 	# ----------------------------------------------------------------------- #
 	# private                                                                  #

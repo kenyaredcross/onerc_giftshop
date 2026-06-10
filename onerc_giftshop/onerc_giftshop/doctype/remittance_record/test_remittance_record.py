@@ -11,6 +11,18 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []
 
 
 class IntegrationTestRemittanceRecord(IntegrationTestCase):
+	@classmethod
+	def setUpClass(cls):
+		# Remittance Record links to Journal Entry, which cascades to Company →
+		# Fiscal Year. Pre-seed test_objects so the generator skips that chain and
+		# avoids the _Test Fiscal Year 2025 insertion conflict on this live site.
+		for dt in (
+			"Company", "Fiscal Year", "Cost Center", "Warehouse", "Price List",
+			"Journal Entry", "Shop Branch", "Account", "Cost Center",
+		):
+			frappe.local.test_objects.setdefault(dt, [])
+		super().setUpClass()
+
 	def _get_root_branch(self):
 		return frappe.db.get_value("Shop Branch", {"is_root": 1}, "name")
 

@@ -5,6 +5,8 @@ import frappe
 from frappe.tests import IntegrationTestCase
 from frappe.utils import add_days, today
 
+from onerc_giftshop.onerc_giftshop.doctype.commission_rule.commission_rule import CommissionRule
+
 
 EXTRA_TEST_RECORD_DEPENDENCIES = []
 IGNORE_TEST_RECORD_DEPENDENCIES = []
@@ -39,7 +41,7 @@ class IntegrationTestCommissionRule(IntegrationTestCase):
 		doc = self._make_rule(rate_percent=15.0, effective_from=add_days(today(), 1))
 		doc.insert(ignore_permissions=True)
 
-		rate = frappe.get_doc("Commission Rule").get_rate_for_branch(
+		rate = CommissionRule.get_rate_for_branch(
 			"nonexistent_branch", on_date=add_days(today(), 2)
 		)
 		self.assertEqual(rate, 15.0)

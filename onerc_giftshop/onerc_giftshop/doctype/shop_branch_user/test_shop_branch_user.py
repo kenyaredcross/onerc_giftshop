@@ -5,7 +5,7 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-EXTRA_TEST_RECORD_DEPENDENCIES = ["User"]
+EXTRA_TEST_RECORD_DEPENDENCIES = []
 IGNORE_TEST_RECORD_DEPENDENCIES = []
 
 
@@ -14,6 +14,19 @@ def _get_test_branch():
 
 
 class IntegrationTestShopBranchUser(IntegrationTestCase):
+	@classmethod
+	def setUpClass(cls):
+		# Pre-seed test_objects so the make_test_records generator treats these
+		# ERPNext fixture types as already handled. Without this, traversal reaches
+		# Company → Fiscal Year and fails inserting _Test Fiscal Year 2025 on a live
+		# site that already has a 2025 fiscal year.
+		for dt in (
+			"Company", "Fiscal Year", "Cost Center", "Warehouse", "Price List",
+			"User", "Shop Branch", "Journal Entry",
+		):
+			frappe.local.test_objects.setdefault(dt, [])
+		super().setUpClass()
+
 	def _make_test_user(self, email):
 		if frappe.db.exists("User", email):
 			return frappe.get_doc("User", email)

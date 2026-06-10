@@ -144,7 +144,7 @@
    "fieldname": "geo_unit",
    "fieldtype": "Link",
    "label": "Geo Unit",
-   "options": "Geography"
+   "options": "Geo Node"
   },
   {
    "fieldname": "description_section",
