@@ -26,3 +26,7 @@ scheduler_events = {
 		"onerc_giftshop.tasks.expire_abandoned_carts",
 	],
 }
+
+website_route_rules = [
+	{"from_route": "/shop-manager/<path:subpath>", "to_route": "shop-manager"},
+]
