@@ -18,6 +18,21 @@ def _to_slug(name):
 
 
 @frappe.whitelist(allow_guest=True)
+def get_shop_settings():
+	settings = frappe.get_single("Gift Shop Settings")
+	return _ok(data={
+		"shop_name": settings.shop_name or "Gift Shop",
+		"shop_tagline": settings.shop_tagline or "",
+		"logo": settings.logo or "",
+		"primary_colour": settings.primary_colour or "#EE2435",
+		"secondary_colour": settings.secondary_colour or "#011E41",
+		"contact_email": settings.contact_email or "",
+		"contact_phone": settings.contact_phone or "",
+		"enable_guest_checkout": bool(settings.enable_guest_checkout),
+	})
+
+
+@frappe.whitelist(allow_guest=True)
 def get_categories():
 	root = frappe.db.get_single_value("Gift Shop Settings", "root_item_group") or "Gift Shop"
 

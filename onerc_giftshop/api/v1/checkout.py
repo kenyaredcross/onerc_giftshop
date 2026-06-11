@@ -205,3 +205,15 @@ def get_order(order_number):
 		"payment_method": order.payment_method,
 		"items": items,
 	})
+
+
+@frappe.whitelist()
+def get_customer_orders():
+	user = frappe.session.user
+	orders = frappe.db.get_list(
+		"Shop Order",
+		filters={"customer_email": user},
+		fields=["order_number", "status", "total", "creation", "payment_method"],
+		order_by="creation desc",
+	)
+	return _ok(data=orders, meta={"total": len(orders)})

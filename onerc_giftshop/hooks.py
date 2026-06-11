@@ -29,4 +29,5 @@ scheduler_events = {
 
 website_route_rules = [
 	{"from_route": "/shop-manager/<path:subpath>", "to_route": "shop-manager"},
+	{"from_route": "/shop/<path:subpath>", "to_route": "shop"},
 ]

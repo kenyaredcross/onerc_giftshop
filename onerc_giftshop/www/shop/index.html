@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ shop_name }} — Gift Shop</title>
+  <script>
+    window.__csrf_token__ = "{{ csrf_token }}";
+    window.__frappe_user__ = "{{ frappe_user }}";
+    window.__frappe_roles__ = {{ frappe_roles_json }};
+    window.__shop_settings__ = {{ shop_settings_json }};
+  </script>
+  <link rel="stylesheet" href="/assets/onerc_giftshop/shop/shop.css" />
+</head>
+<body>
+  <div id="shopApp"></div>
+  <script type="module" src="/assets/onerc_giftshop/shop/shop.js"></script>
+</body>
+</html>
